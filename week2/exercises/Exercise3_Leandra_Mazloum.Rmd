@@ -53,7 +53,7 @@ whale_october_details <- whale[whale$water.noise == "low" & whale$month == "Octo
 ```
 
 ###3.11
-```{r sessionInfo, echo=FALSE, include=TRUE}
+```{r sessionInfo, echo=TRUE, include=TRUE}
 whale_extract <- whale[whale$depth > 1500 & whale$number.whales > mean(whale$number.whales),]
 #The problem with the outcome to be defined
 ```
