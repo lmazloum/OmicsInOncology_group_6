@@ -1,30 +1,42 @@
 ---
-title: "Switching_gears_Tvisha-SAVUR"
-author: "Tvisha SAVUR"
-date: "2025-02-13"
-output: html_document
+title: "Week 2: Starting with R"
+author: "UZH n UU: tested by Jonas"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::html_document2: default
+  bookdown::pdf_document2: default
+bibliography: bibliography.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+#Use ggplot to compare the shrimp growth rates with their diet type using boxplot with modified aesthetics
+library(tidyverse)
+prawn_df <- data.frame(prawnGR)
+prawn_df %>% print()
+library(ggplot2)
+ggplot(data = prawn_df, aes(x = diet, y = GRate)) +
+  geom_boxplot(fill = "white", color = "black") +
+  labs(title = "Growth Rate Distribution", x = "Diet type", y = "Growth Rate") +
+  theme_minimal()
+
+#Shapiro-Wilk normality test
+natural_GRate <- prawn_df$GRate[prawn_df$diet == "Natural"]
+artificial_GRate <- prawn_df$GRate[prawn_df$diet == "Artificial"]
+shapiro_test_natural <- shapiro.test(natural_GRate)
+shapiro_test_artificial <- shapiro.test(artificial_GRate)
+print(shapiro_test_natural)
+print(shapiro_test_artificial)
+
+#Test the variance of the data
+var_test_result <- var.test(natural_GRate, artificial_GRate)
+print(var_test_result)
+
+
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+#testing how to use pipe operators
+prawn_df %>% print()
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
