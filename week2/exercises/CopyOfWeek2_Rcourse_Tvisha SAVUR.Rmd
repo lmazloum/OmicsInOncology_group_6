@@ -123,10 +123,85 @@ print(seq2)
 ```
 #Question 11
 ```{r}
+#123123123
+rep_123 <- rep(1:3, times = 3)
+print(rep_123)
 
+#“a” “a” “a” “c” “c” “c” “e” “e” “e” “g” “g” “g”
+rep_aceg <- rep(c("a","c","e","g"),each = 3)
+print(rep_aceg)
+
+#“a” “c” “e” “g” “a” “c” “e” “g” “a” “c” “e” “g”
+rep_aceg2 <- rep(c("a","c","e","g"), times = 3)
+print(rep_aceg2)
+
+#1 1 1 2 2 2 3 3 3 1 1 1 2 2 2 3 3 3
+seq <- rep(c(1,2,3,1,2,3),each = 3)
+print(seq)
+
+#1 1 1 1 1 2 2 2 2 3 3 3 4 4 5
+seq_2 <- rep(c(1, 2, 3, 4, 5), times = c(5, 4, 3, 2, 1))
+print(seq_2)
+
+#7 7 7 7 2 2 2 8 1 1 1 1 1
+seq_3 <- rep(c(7,2,8,1), times = c(4,3,1,5))
+print(seq_3)
 ```
 
 #Question 12
 ```{r}
+#height vector
+height <- c(112, 102, 83, 84, 99, 90, 77, 112, 133, 112)
+print(height)
+
+#height sorted ascending
+height_sorted <- sort(height)
+print(height_sorted)
+
+#height sorted descending
+height_sorted2 <- sort(height, decreasing = TRUE)
+print(height_sorted2)
+```
+
+#Question 13 & 14
+```{r}
+#child names vector
+child_name <- c("Alfred", "Barbara", "James", "Jane", "John", "Judy", "Louise", "Mary", "Ronald", "William")
+print(child_name)
+
+#height vector
+height <- c(112, 102, 83, 84, 99, 90, 77, 112, 133, 112)
+
+#sort children by height
+names_sort <- child_name[order(height)]
+print(names_sort)
+```
+
+#Question 15
+```{r}
+#weight vector
+weight <- c(69, 62, 57, 59, 59, 64, 56, 66, 67, 66)
+
+#child names vector
+child_name <- c("Alfred", "Barbara", "James", "Jane", "John", "Judy", "Louise", "Mary", "Ronald", "William")
+
+
+#sort from highest to lowest weight
+names_sort <- child_name[order(weight, decreasing = TRUE)]
+print(names_sort)
+
+```
+
+#Question 16
+```{r}
+#Mean
+mydata <- c(2, 4, 1, 6, 8, 5, NA, 4, 7)
+print(mean(mydata))
+print(mean(mydata, na.rm = TRUE))
+```
+
+#Question 17
+```{r}
+var_list <- c(myNumber, "area_circle", "myNumber2", 'weight', "mean_weight", "variance_weight", "sd_weight", "range_weight", "length_weight", "some_child", "height_squared", "seq1", seq2, rep_123, rep_aceg, rep_aceg2, seq, seq_2, seq_3, height_sorted, height_sorted2, child_name, names_sort, mydata, var_list)
 
 ```
