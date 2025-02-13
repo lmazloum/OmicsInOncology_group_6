@@ -39,4 +39,15 @@ print(var_test_result)
 prawn_df %>% print()
 ```
 
+```{r}
+#testing how to use filter function -> extract only prawns that have natural diet
+natural_prawns <- prawn_df %>% filter(diet == "Natural")
+print(natural_prawns)
+```
+
+```{r}
+#testing how to use filter function -> extract only prawns that have artificial diet
+artificial_prawns <- prawn_df %>% filter(diet == "Artificial")
+print(artificial_prawns)
+```
 
